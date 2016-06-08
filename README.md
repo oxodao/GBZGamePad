@@ -17,7 +17,7 @@
   So now, you will need to download the Github folder, either by click on the green button "Clone or download".
   
   - Once it is done, start the Arduino program and go to "Sketch -> Include Library -> Add .ZIP Library..." and select the file that you just downloaded.
-  Then it is just a matter of opening the example file I made: File -> Examples -> BoyduinoGamepad -> GameboyPCB
+  Then it is just a matter of opening the example file I made: File -> Examples -> GBZGamePad-master -> GameboyPCB
   It should show you the code of the Gamepad.
   Then you need to go to the Tools menu, in Board select "Arduino Leonardo", and in the Serial Port, choose the one that correspond to your board.
 
