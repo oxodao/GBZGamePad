@@ -1,10 +1,10 @@
 - *Helder, from Sudomod.com, is working on a PCB for the Gamepad*
 
-## 1) What's a GBZ Gamepad ?
+#### 1) What's a GBZ Gamepad ?
 
-	- A Gameboy Zero Gamepad is a PCB that will handle everything in order to make the Gamepad required for building the Gameboy Zero. The pcb contains the button needed and an Arduino that will simulate the joystick on the Raspberry. This results in the fact that you have nearly no cable where it used to be a mess of wires.
+- A Gameboy Zero Gamepad is a PCB that will handle everything in order to make the Gamepad required for building the Gameboy Zero. The pcb contains the button needed and an Arduino that will simulate the joystick on the Raspberry. This results in the fact that you have nearly no cable where it used to be a mess of wires.
 
-## 2) Tutorial
+#### 2) Tutorial
 
 ###### I) Flashing the bootloader
   - As soon as you have your board fully populated, you will need to install the Arduino bootloader on it so that it will be considered as an Arduino Leonardo (or Pro micro).
