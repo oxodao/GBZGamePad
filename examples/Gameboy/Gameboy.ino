@@ -15,11 +15,27 @@ Gamepad gb;
 #define BTN_L2 11
 #define BTN_B 12
 #define BTN_SELECT 13
+#define STICK_X A0
+#define STICK_Y A1
+
+int xZero, yZero;
+int xValue, yValue;
+int deadzone = 5;
+int xPosMax = 0;
+int xNegMax = 0;
+int yPosMax = 0;
+int yNegMax = 0;
 
 void setup() {
+  pinMode(STICK_X, INPUT);
+  pinMode(STICK_Y, INPUT);
+  
   for (int x = 0; x<13; x++){
       pinMode(x, INPUT_PULLUP);
   }
+
+  xZero = analogRead(STICK_X);
+  yZero = analogRead(STICK_Y);
 }
 
 void loop() {
@@ -43,5 +59,42 @@ void loop() {
   gb.setButtonState(9, !digitalRead(BTN_L2));
   gb.setButtonState(10, !digitalRead(BTN_R2));
 
+  xValue = analogRead(STICK_X) - xZero;
+  yValue = analogRead(STICK_Y) - yZero;
+
+  if (abs(xValue) < deadzone) {
+    xValue = 0;
+  }
+  if (abs(yValue) < deadzone) {
+    yValue = 0;
+  }
+
+  if (xValue > 0 && xValue > xPosMax) {
+    xPosMax = xValue;
+  } else if (xValue < 0 && xValue < xNegMax) {
+    xNegMax = xValue;
+  }
+
+  if (yValue > 0 && yValue > yPosMax) {
+    yPosMax = yValue;
+  } else if (yValue < 0 && yValue < yNegMax) {
+    yNegMax = yValue;
+  }
+
+  float xMax = abs(xPosMax);
+  if (xValue < 0) {
+    xMax = abs(xNegMax);
+  }
+
+  float yMax = abs(yPosMax);
+  if (yValue < 0) {
+    yMax = abs(yNegMax);
+  }
+
+  int xFinal = (((float)xValue / xMax)*127);
+  int yFinal = (((float)yValue / yMax)*127);
+  gb.setRightXaxis(xFinal);
+  gb.setRightYaxis(yFinal);
+  
   gb.sendUpdate();
 }
