@@ -1,4 +1,4 @@
-##### Now working with PSP 200 Joystick :)
+##### Now working with PSP 2000 Joystick :)
 - *Helder, from Sudomod.com, is working on a PCB for the Gamepad* => http://www.sudomod.com/forum/viewtopic.php?f=8&t=413
 
 #### 1) What's a GBZ Gamepad ?
